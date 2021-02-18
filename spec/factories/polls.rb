@@ -43,6 +43,10 @@ FactoryBot.define do
       after(:create) { |poll| create(:image, imageable: poll) }
     end
 
+    trait :irma do
+      irma { true }
+    end
+
     transient { officers { [] } }
 
     after(:create) do |poll, evaluator|

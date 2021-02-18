@@ -110,6 +110,13 @@ describe Poll do
     end
   end
 
+  describe "#irma?" do
+    it "returns true only when irma is true" do
+      expect(create(:poll)).not_to be_irma
+      expect(create(:poll, :irma)).to be_irma
+    end
+  end
+
   describe "#recounting" do
     it "returns polls in recount & scrutiny phase" do
       current = create(:poll, :current)

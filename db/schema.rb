@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201201100342) do
+ActiveRecord::Schema.define(version: 20210218130323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1184,6 +1184,7 @@ ActiveRecord::Schema.define(version: 20201201100342) do
     t.integer "budget_id"
     t.string "related_type"
     t.integer "related_id"
+    t.boolean "irma", default: false
     t.index ["budget_id"], name: "index_polls_on_budget_id", unique: true
     t.index ["related_type", "related_id"], name: "index_polls_on_related_type_and_related_id"
     t.index ["starts_at", "ends_at"], name: "index_polls_on_starts_at_and_ends_at"
