@@ -23,9 +23,9 @@ every 1.minute do
   command "date > ~/cron-test.txt"
 end
 
-every 1.day, at: "5:00 am" do
-  rake "-s sitemap:refresh"
-end
+# every 1.day, at: "5:00 am" do
+#   rake "-s sitemap:refresh"
+# end
 
 every 2.hours do
   rake "-s stats:generate"

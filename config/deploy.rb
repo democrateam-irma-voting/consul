@@ -61,7 +61,7 @@ namespace :deploy do
   before "deploy:restart", "puma:start"
 
   before :finished, "execute_release_tasks"
-  after :finished, "refresh_sitemap"
+  #after :finished, "refresh_sitemap"
 end
 
 task :install_bundler_gem do
@@ -72,15 +72,15 @@ task :install_bundler_gem do
   end
 end
 
-task :refresh_sitemap do
-  on roles(:app) do
-    within release_path do
-      with rails_env: fetch(:rails_env) do
-        execute :rake, "sitemap:refresh:no_ping"
-      end
-    end
-  end
-end
+# task :refresh_sitemap do
+#   on roles(:app) do
+#     within release_path do
+#       with rails_env: fetch(:rails_env) do
+#         execute :rake, "sitemap:refresh:no_ping"
+#       end
+#     end
+#   end
+# end
 
 task :add_new_settings do
   on roles(:db) do
