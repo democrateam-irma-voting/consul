@@ -450,6 +450,7 @@ nl:
       results:
         title: "Vragen"
         most_voted_answer: "Antwoord met de meeste stemmen: "
+      confirm_vote_submit: "Confirm my vote"
   poll_questions:
     show:
       vote_answer: "Stem %{answer}"

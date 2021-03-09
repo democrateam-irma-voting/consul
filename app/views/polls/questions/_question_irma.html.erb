@@ -1,0 +1,26 @@
+<form action="#">
+  <% @questions.each_with_index do |question, index| %>
+    <div id="<%= dom_id(question) %>" class="poll-question">
+      <% if @questions.count > 1 %>
+        <span class="question-list-label"><%= t("polls.question") %> <%= index + 1 %></span>
+      <% end %>
+
+      <h3 class="inline-block">
+        <%= question.title %>
+      </h3>
+
+      <% if question.answers_with_description.any? %>
+        <br>
+        <a href="#answer_<%= "#{question.answers_with_description.first.id}" %>" class="small" data-smooth-scroll>
+          <%= t("polls.show.more_info_options") %>
+        </a>
+      <% end %>
+
+      <div id="<%= dom_id(question) %>_answers" class="padding">
+        <%= render "polls/questions/answers_irma", question: question %>
+      </div>
+    </div>
+  <% end %>
+
+  <input type="submit" value="<%= t("polls.show.confirm_vote_submit") %>" class="button">
+</form>
