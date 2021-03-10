@@ -2350,6 +2350,41 @@ footer {
       }
     }
   }
+
+  &.irma {
+
+    .button-check {
+      clip: rect(0, 0, 0, 0);
+      pointer-events: none;
+      position: absolute;
+    }
+
+    input:checked + label {
+      background: $brand;
+      border: 2px solid $brand !important;
+      color: #fff !important;
+
+      &::after {
+        background: $brand;
+        border: 2px solid #fff;
+        border-radius: rem-calc(20);
+        content: "\6c";
+        color: #fff;
+        font-family: "icons" !important;
+        font-size: rem-calc(12);
+        padding: $line-height / 4;
+        position: absolute;
+        right: -8px;
+        top: -12px;
+      }
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0;
+      margin-left: 0;
+    }
+  }
 }
 
 .poll-more-info-answers-divider {

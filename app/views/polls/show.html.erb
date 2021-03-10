@@ -31,8 +31,12 @@
         <% end %>
       <% end %>
 
-      <% @questions.each_with_index do |question, index| %>
-        <%= render "polls/questions/question", question: question, index: index, token: @token %>
+      <% if @poll.irma? %>
+        <%= render "polls/questions/question_irma" %>
+      <% else %>
+        <% @questions.each_with_index do |question, index| %>
+          <%= render "polls/questions/question", question: question, index: index, token: @token %>
+        <% end %>
       <% end %>
     </div>
   </div>

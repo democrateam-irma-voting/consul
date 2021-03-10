@@ -1,0 +1,9 @@
+<div class="poll-question-answers irma">
+  <% question.question_answers.each do |answer| %>
+    <div class="relative">
+      <input type="radio" class="button-check" name="answers_question_<%= question.id %>"
+             id="answer_<%= answer.id %>" value="<%= answer.title %>">
+      <label for="answer_<%= answer.id %>" class="button secondary hollow "><%= answer.title %></label><br>
+    </div>
+  <% end %>
+</div>
