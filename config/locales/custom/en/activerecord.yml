@@ -3,3 +3,5 @@ en:
     attributes:
       budget/investment:
         location: "Information about the location"
+      poll:
+        irma: "Use IRMA verification for this poll"

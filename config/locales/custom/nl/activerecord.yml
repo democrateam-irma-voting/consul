@@ -128,3 +128,5 @@ nl:
       proposal_notification:
         body: "Bericht"
         title: "Titel"
+      poll:
+        irma: "Use IRMA verification for this poll"
