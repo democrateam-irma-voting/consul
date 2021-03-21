@@ -650,6 +650,10 @@ en:
         title: "Questions"
         most_voted_answer: "Most voted answer: "
       confirm_vote_submit: "Confirm my vote"
+      irma:
+        voting_card_needed: "An IRMA voting card is needed to confirm your vote.<br><br>Do you already have your IRMA voting card?"
+        get_voting_card: "I don't. Get my IRMA voting card"
+        voting_card_owned: "Yes, I already have my IRMA voting card"
     poll_header:
       back_to_proposal: Back to proposal
   poll_questions:

@@ -1,4 +1,5 @@
 <form action="#">
+  <input type="hidden" id="poll_id" value="<%= @poll.id %>">
   <% @questions.each_with_index do |question, index| %>
     <div id="<%= dom_id(question) %>" class="poll-question">
       <% if @questions.count > 1 %>
@@ -22,5 +23,5 @@
     </div>
   <% end %>
 
-  <input type="submit" value="<%= t("polls.show.confirm_vote_submit") %>" class="button">
+  <input type="submit" value="<%= t("polls.show.confirm_vote_submit") %>" class="button" id="irma-confirm-voting">
 </form>

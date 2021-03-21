@@ -1,0 +1,17 @@
+<div class="polls-show">
+  <div class="expanded no-margin-top polls-show-header">
+    <div class="row">
+      <div class="small-12 medium-9 column padding">
+        <%= back_link_to polls_path, t("polls.show.back") %>
+
+        <h1><%= @poll.name %></h1>
+
+        <% if @message[:type] == :alert %>
+        <div class="error"><%= @message[:text] %></div>
+        <% else %>
+        <div class="success"><%= @message[:text] %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

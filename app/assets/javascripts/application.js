@@ -111,6 +111,8 @@
 //= require budget_edit_associations
 //= require datepicker
 //= require link_to_top
+//= require irma
+//= require irma_voting
 
 var initialize_modules = function() {
   "use strict";
@@ -164,6 +166,7 @@ var initialize_modules = function() {
   App.BudgetEditAssociations.initialize();
   App.Datepicker.initialize();
   App.LinkToTop.initialize();
+  App.IrmaVoting.initialize();
 };
 
 var destroy_non_idempotent_modules = function() {

@@ -1,0 +1,17 @@
+<div class="polls-show">
+  <div class="expanded no-margin-top polls-show-header">
+    <div class="row">
+      <div class="small-12 medium-9 column padding">
+        <%= back_link_to polls_path, t("polls.show.back") %>
+
+        <h1><%= @poll.name %></h1>
+
+        <%= sanitize t("polls.show.irma.voting_card_needed") %>
+        <br>
+        <%= link_to t("polls.show.irma.get_voting_card"), "http://localhost:4444/user/?name=#{@poll.slug}", id: "#polls_get_irma_voting_card" %>
+        <br>
+        <%= link_to t("polls.show.irma.voting_card_owned"), poll_path(id: @poll.slug || @poll.id, authenticated: true) %>
+      </div>
+    </div>
+  </div>
+</div>
