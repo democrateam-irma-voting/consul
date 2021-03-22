@@ -5,12 +5,27 @@
         <%= back_link_to polls_path, t("polls.show.back") %>
 
         <h1><%= @poll.name %></h1>
+      </div>
+    </div>
+  </div>
 
-        <%= sanitize t("polls.show.irma.voting_card_needed") %>
-        <br>
-        <%= link_to t("polls.show.irma.get_voting_card"), "http://localhost:4444/user/?name=#{@poll.slug}", id: "#polls_get_irma_voting_card" %>
-        <br>
-        <%= link_to t("polls.show.irma.voting_card_owned"), poll_path(id: @poll.slug || @poll.id, authenticated: true) %>
+  <div class="row margin-top">
+    <div class="callout primary">
+      <%= t("polls.show.irma.voting_card_needed") %>
+    </div>
+
+    <div class="card">
+      <div class="column padding">
+        <p><strong><%= t("polls.show.irma.already_irma") %></strong></p>
+
+        <%= link_to t("polls.show.irma.get_voting_card"),
+            "http://localhost:4444/user/?name=#{@poll.slug}",
+            class: "button hollow bold",
+            id: "#polls_get_irma_voting_card" %>
+
+        <%= link_to t("polls.show.irma.voting_card_owned"),
+            poll_path(id: @poll.slug || @poll.id, authenticated: true),
+            class: "button success bold" %>
       </div>
     </div>
   </div>

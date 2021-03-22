@@ -48,9 +48,9 @@ class PollsController < ApplicationController
   def irma_vote
     vote = @poll.irma_votes.new(irma_vote_params)
     if vote.save
-      message = { type: "notice", text: "Your vote has been successfully saved." }
+      message = { type: "notice", text: t("polls.show.irma.success") }
     else
-      message = { type: "alert", text: "You have already voted in this poll." }
+      message = { type: "alert", text: t("polls.show.irma.already_voted") }
     end
     render json: message
   end
@@ -61,7 +61,7 @@ class PollsController < ApplicationController
     elsif params[:notice]
       @message = { type: :notice, text: params[:notice] }
     else
-      @message = { type: :alert, text: "An unexpected error has ocurred" }
+      @message = { type: :alert, text: t("polls.show.irma.error") }
     end
   end
 

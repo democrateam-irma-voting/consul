@@ -45,7 +45,7 @@
         return voting_number;
       };
 
-      $("#irma-confirm-voting").on("click", function(event) {
+      $("#irma_confirm_voting").on("click", function(event) {
         event.target.disabled = true;
         var poll_id = $("input#poll_id").val();
         var answers = getAnswers();

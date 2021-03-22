@@ -5,13 +5,15 @@
         <%= back_link_to polls_path, t("polls.show.back") %>
 
         <h1><%= @poll.name %></h1>
-
-        <% if @message[:type] == :alert %>
-        <div class="error"><%= @message[:text] %></div>
-        <% else %>
-        <div class="success"><%= @message[:text] %></div>
-        <% end %>
       </div>
     </div>
+  </div>
+
+  <div class="row margin-top">
+    <% if @message[:type] == :alert %>
+      <div class="callout alert"><%= @message[:text] %></div>
+    <% else %>
+      <div class="callout success"><%= @message[:text] %></div>
+    <% end %>
   </div>
 </div>

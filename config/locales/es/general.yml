@@ -653,9 +653,13 @@ es:
         title: "Preguntas"
         most_voted_answer: "Respuesta más votada: "
       irma:
-        voting_card_needed: "Se necesita una tarjeta de votación de IRMA para confirmar tus voto.<br><br>¿Ya dispones de una tarjeta de votación de IRMA?"
+        voting_card_needed: "Se necesita una tarjeta de votación de IRMA para confirmar tus voto."
+        already_irma: "¿Ya dispones de una tarjeta de votación de IRMA?"
         get_voting_card: "No. Obtener mi tarjeta de votación"
         voting_card_owned: "Sí, ya dispongo de mi tarjeta de votación"
+        success: "Tu voto se ha guardado correctamente."
+        already_voted: "Ya has participado en esta votación."
+        error: "Ha ocurrido un error inesperado."
     poll_header:
       back_to_proposal: Volver a la propuesta
   poll_questions:
