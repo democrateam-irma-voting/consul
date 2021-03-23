@@ -108,9 +108,11 @@ describe "Polls" do
     scenario "Displays icon correctly", :js do
       create_list(:poll, 3)
       create(:poll, :expired, name: "Expired poll")
+      create(:poll, :irma)
 
       visit polls_path
 
+      expect(page).to have_css(".poll", count: 4)
       expect(page).to have_css(".message .callout .fa-user", count: 3)
       expect(page).to have_content("You must sign in or sign up to participate", count: 3)
 
@@ -130,10 +132,12 @@ describe "Polls" do
 
     scenario "Geozone poll" do
       create(:poll, geozone_restricted: true)
+      create(:poll, :irma)
 
       login_as(create(:user, :level_two))
       visit polls_path
 
+      expect(page).to have_css(".poll", count: 2)
       expect(page).to have_css(".message .callout .fa-globe", count: 1)
       expect(page).to have_content("This poll is not available on your geozone")
     end
@@ -502,6 +506,23 @@ describe "Polls" do
         expect(page).not_to have_link("No")
         expect(page).to have_link("Yes")
       end
+    end
+
+    scenario "Do not show callout messages on IRMA polls" do
+      user = create(:user, :level_two)
+      poll_irma = create(:poll, :irma)
+      visit poll_path(poll_irma)
+
+      expect(page).not_to have_content("You must sign in or sign up to participate")
+      expect(page).not_to have_content("This poll is not available on your geozone")
+      expect(page).not_to have_content("You already have participated in this poll")
+
+      login_as user
+      visit poll_path(poll_irma)
+
+      expect(page).not_to have_content("You must sign in or sign up to participate")
+      expect(page).not_to have_content("This poll is not available on your geozone")
+      expect(page).not_to have_content("You already have participated in this poll")
     end
   end
 
