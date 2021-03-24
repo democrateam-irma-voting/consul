@@ -35,6 +35,14 @@
         return answers;
       };
 
+      var humanReadable = function(answers) {
+        var text = "";
+        answers.forEach(function(answer) {
+          text += answer.question + " " + answer.answer + "\n";
+        });
+        return text;
+      };
+
       var getVotingNumber = function(result) {
         var voting_number = "";
         result.disclosed[0].forEach(function(attribute) {
@@ -50,13 +58,14 @@
         var poll_id = $("input#poll_id").val();
         var answers = getAnswers();
         //var server = "http://78.31.65.151:8090";
+        var message = humanReadable(answers);
         var server = "http://192.168.1.38:8090";
         var method = "token";
         var key = "0DLA0eaemnU20XW3YH4";
         var election = "irma-voting";
         var request = {
           "@context": "https://irma.app/ld/request/signature/v2",
-          "message": JSON.stringify(answers),
+          "message": message,
           "disclose": [[[
             { "type": "irma-demo.stemmen.stempas.votingnumber", "notNull": true },
             { "type": "irma-demo.stemmen.stempas.election", "value": election }
@@ -78,7 +87,7 @@
               ]],
               signature: {
                 signature: [], //TODO: store necessary data
-                message: JSON.stringify(answers)
+                message: message
               }
             };
             var data = {
