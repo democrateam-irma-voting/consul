@@ -660,6 +660,7 @@ es:
         success: "Tu voto se ha guardado correctamente."
         already_voted: "Ya has participado en esta votación."
         error: "Ha ocurrido un error inesperado."
+        expired: "Esta votación ha finalizado. Ya no es posible votar."
     poll_header:
       back_to_proposal: Volver a la propuesta
   poll_questions:

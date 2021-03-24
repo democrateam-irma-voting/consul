@@ -658,6 +658,7 @@ en:
         success: "Your vote has been successfully saved."
         already_voted: "You have already voted in this poll."
         error: "An unexpected error has ocurred"
+        expired: "This poll is expired. Voting is no longer possible."
     poll_header:
       back_to_proposal: Back to proposal
   poll_questions:
