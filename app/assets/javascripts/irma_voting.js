@@ -91,7 +91,7 @@
             };
             var data = {
               voting_number: getVotingNumber(result),
-              vote: JSON.stringify(answers)
+              vote: JSON.stringify(result)
             };
 
             if (result.status === "DONE" && result.proofStatus === "VALID"){
