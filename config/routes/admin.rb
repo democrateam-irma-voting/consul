@@ -125,6 +125,7 @@ namespace :admin do
   scope module: :poll do
     resources :polls do
       get :booth_assignments, on: :collection
+      get :download_results, on: :member
       patch :add_question, on: :member
 
       resources :booth_assignments, only: [:index, :show, :create, :destroy] do

@@ -659,6 +659,8 @@ en:
         already_voted: "You have already voted in this poll."
         error: "An unexpected error has ocurred"
         expired: "This poll is expired. Voting is no longer possible."
+        results:
+          download: "Download results"
     poll_header:
       back_to_proposal: Back to proposal
   poll_questions:

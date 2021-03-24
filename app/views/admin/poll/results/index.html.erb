@@ -5,19 +5,27 @@
 
   <h3><%= t("admin.results.index.title") %></h3>
 
-  <% if @partial_results.empty? && @poll.voters.empty? %>
-    <div class="callout primary margin-top">
-      <%= t("admin.results.index.no_results") %>
-    </div>
-  <% end %>
+  <% if @poll.irma? %>
+    <%= link_to t("polls.show.irma.results.download"),
+                download_results_admin_poll_path(@poll),
+                class: "button" %>
+  <% else %>
 
-  <% if @partial_results.present? %>
-    <%= render "recount", resource: @poll %>
-    <%= render "result" %>
-    <%= render "results_by_booth" %>
-  <% end %>
+    <% if @partial_results.empty? && @poll.voters.empty? %>
+      <div class="callout primary margin-top">
+        <%= t("admin.results.index.no_results") %>
+      </div>
+    <% end %>
 
-  <% if @poll.voters.any? %>
-    <%= render "show_results", resource: @poll %>
+    <% if @partial_results.present? %>
+      <%= render "recount", resource: @poll %>
+      <%= render "result" %>
+      <%= render "results_by_booth" %>
+    <% end %>
+
+    <% if @poll.voters.any? %>
+      <%= render "show_results", resource: @poll %>
+    <% end %>
+
   <% end %>
 </div>
