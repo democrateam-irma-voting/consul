@@ -55,14 +55,13 @@
 
       $("#irma_confirm_voting").on("click", function(event) {
         event.target.disabled = true;
-        var poll_id = $("input#poll_id").val();
+        var election = $("input#poll_slug").val();
         var answers = getAnswers();
         //var server = "http://78.31.65.151:8090";
         var message = humanReadable(answers);
         var server = "http://192.168.1.38:8090";
         var method = "token";
         var key = "0DLA0eaemnU20XW3YH4";
-        var election = "irma-voting";
         var request = {
           "@context": "https://irma.app/ld/request/signature/v2",
           "message": message,
@@ -98,11 +97,11 @@
             if (result.status === "DONE" && result.proofStatus === "VALID"){
               $.ajax({
                 type: "POST",
-                url: "/polls/" + poll_id + "/irma_vote",
+                url: "/polls/" + election + "/irma_vote",
                 dataType: "json",
                 data: data,
                 success: function(message) {
-                  window.location.replace("/polls/" + poll_id + "/irma_vote_finalize?" + message.type + "=" + message.text);
+                  window.location.replace("/polls/" + election + "/irma_vote_finalize?" + message.type + "=" + message.text);
                 }
               });
             } else {
