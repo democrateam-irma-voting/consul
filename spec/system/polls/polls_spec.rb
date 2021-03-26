@@ -323,6 +323,28 @@ describe "Polls" do
       end
     end
 
+    scenario "IRMA polls show only first image with the answers and hide gallery" do
+      poll = create(:poll, :irma)
+      question = create(:poll_question, poll: poll)
+      answer_1 = create(:poll_question_answer, title: "Answer 1", question: question, description: "One image")
+      answer_2 = create(:poll_question_answer, title: "Answer 2", question: question, description: "Two images")
+      image_1 = create(:image, imageable: answer_1, title: "Title for image one")
+      image_2 = create(:image, imageable: answer_2, title: "Title for image two")
+      image_3 = create(:image, imageable: answer_2, title: "Title for image three")
+
+      visit poll_path(poll)
+
+      within(".poll-question-answers") do
+        expect(page).to have_selector("img", count: 2)
+        expect(page).to have_css("img[alt='#{image_1.title}']")
+        expect(page).to have_css("img[alt='#{image_2.title}']")
+        expect(page).not_to have_css("img[alt='#{image_3.title}']")
+      end
+
+      expect(page).not_to have_selector "#answer_#{answer_1.id}_gallery"
+      expect(page).not_to have_selector "#answer_#{answer_2.id}_gallery"
+    end
+
     scenario "Non-logged in users" do
       create(:poll_question, :yes_no, poll: poll)
 
