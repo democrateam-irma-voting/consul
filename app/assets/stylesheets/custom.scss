@@ -2359,10 +2359,23 @@ footer {
       position: absolute;
     }
 
+    img {
+      border: 2px solid #fff;
+      border-radius: rem-calc(12);
+      margin-bottom: $line-height / 2;
+    }
+
     input:checked + label {
-      background: $brand;
-      border: 2px solid $brand !important;
-      color: #fff !important;
+
+      .button {
+        background: $brand;
+        border: 2px solid $brand !important;
+        color: #fff !important;
+      }
+
+      img {
+        border: 2px solid $brand;
+      }
 
       &::after {
         background: $brand;
@@ -2371,11 +2384,14 @@ footer {
         content: "\6c";
         color: #fff;
         font-family: "icons" !important;
-        font-size: rem-calc(12);
-        padding: $line-height / 4;
+        font-size: rem-calc(14);
+        height: 30px;
+        padding-left: $line-height / 4;
+        padding-top: 1px;
         position: absolute;
-        right: -8px;
-        top: -12px;
+        right: 6px;
+        top: -6px;
+        width: 30px;
       }
     }
 

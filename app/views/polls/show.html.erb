@@ -59,8 +59,10 @@
               <h3><%= answer.title %></h3>
             <% end %>
 
-            <% if answer.images.any? %>
-              <%= render "gallery", answer: answer %>
+            <% unless @poll.irma? %>
+              <% if answer.images.any? %>
+                <%= render "gallery", answer: answer %>
+              <% end %>
             <% end %>
 
             <% if answer.description.present? %>
