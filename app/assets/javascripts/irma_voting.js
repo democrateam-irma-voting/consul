@@ -57,7 +57,6 @@
         event.target.disabled = true;
         var election = $("input#poll_slug").val();
         var answers = getAnswers();
-        //var server = "http://78.31.65.151:8090";
         var message = humanReadable(answers);
         var server = "http://192.168.1.38:8090";
         var method = "token";
@@ -71,9 +70,13 @@
           ]]]
         };
 
-//        irma.startSession(server, request, method, key).then(function({sessionPtr, token}) {
-//          sessionPtr.u = server + "/session/" + token;
-//          irma.handleSession(sessionPtr).then(function(result) {
+        irma.startSession(server, request, method, key).then(function({sessionPtr, token}) {
+          sessionPtr.u = server + "/session/" + token;
+          var options = {
+            server: server,
+            token: token
+          };
+          irma.handleSession(sessionPtr, options).then(function(result) {
             //console.log(result);
             var result = {
               status: "DONE",
@@ -107,11 +110,11 @@
             } else {
               //TODO: manage not signed response
             }
-//          }).catch(function(error){
-//            console.log(error);
-//            window.location.reload();
-//          });
-//        });
+          }).catch(function(error){
+            console.log(error);
+            //window.location.reload();
+          });
+        });
       });
     },
     initialize: function() {
