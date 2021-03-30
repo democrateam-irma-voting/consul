@@ -61,6 +61,11 @@
         var server = "http://192.168.1.38:8090";
         var method = "token";
         var key = "0DLA0eaemnU20XW3YH4";
+
+        if (message === "") {
+          message = " "
+        }
+
         var request = {
           "@context": "https://irma.app/ld/request/signature/v2",
           "message": message,
