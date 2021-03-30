@@ -71,27 +71,11 @@
         };
 
         irma.startSession(server, request, method, key).then(function({sessionPtr, token}) {
-          sessionPtr.u = server + "/session/" + token;
           var options = {
             server: server,
             token: token
           };
           irma.handleSession(sessionPtr, options).then(function(result) {
-            //console.log(result);
-            var result = {
-              status: "DONE",
-              proofStatus: "VALID",
-              disclosed: [[
-                {
-                  rawvalue: "QeeqOKoO5QJnRVp8Xed35esA3589PaTaWd7C0BfntBj",
-                  id: "irma-demo.stemmen.stempas.votingnumber"
-                }
-              ]],
-              signature: {
-                signature: [], //TODO: store necessary data
-                message: message
-              }
-            };
             var data = {
               voting_number: getVotingNumber(result),
               vote: JSON.stringify(result)
@@ -108,11 +92,11 @@
                 }
               });
             } else {
-              //TODO: manage not signed response
+              window.location.reload();
             }
           }).catch(function(error){
             console.log(error);
-            //window.location.reload();
+            window.location.reload();
           });
         });
       });
