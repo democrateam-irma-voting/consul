@@ -76,7 +76,9 @@ class PollsController < ApplicationController
     end
 
     def irma_authentication
-      redirect_to irma_authenticate_poll_path(@poll) unless params[:authenticated].present?
+      if params[:authenticated] == "false"
+        redirect_to irma_authenticate_poll_path(@poll)
+      end
     end
 
     def irma_vote_params
