@@ -40,7 +40,7 @@
         answers.forEach(function(answer) {
           text += answer.question + " " + answer.answer + "\n";
         });
-        return text;
+        return text.slice(0, -1);;
       };
 
       var getVotingNumber = function(result) {
