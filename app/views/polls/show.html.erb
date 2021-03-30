@@ -15,7 +15,7 @@
   <%= render "poll_subnav" %>
 
   <div class="row margin">
-    <div class="small-12 medium-9 column">
+    <div class="small-12 column <%= "medium-9" unless @poll.irma? %>">
       <% if @poll.irma? %>
         <%= render "polls/questions/question_irma" %>
       <% else %>
@@ -59,8 +59,10 @@
               <h3><%= answer.title %></h3>
             <% end %>
 
-            <% if answer.images.any? %>
-              <%= render "gallery", answer: answer %>
+            <% unless @poll.irma? %>
+              <% if answer.images.any? %>
+                <%= render "gallery", answer: answer %>
+              <% end %>
             <% end %>
 
             <% if answer.description.present? %>

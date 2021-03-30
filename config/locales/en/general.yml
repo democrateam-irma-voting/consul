@@ -650,6 +650,7 @@ en:
         title: "Questions"
         most_voted_answer: "Most voted answer: "
       confirm_vote_submit: "Confirm my vote"
+      clear_answers: "Clear answers"
       irma:
         voting_card_needed: "An IRMA voting card is needed to confirm your vote."
         already_irma: "Do you already have your IRMA voting card?"

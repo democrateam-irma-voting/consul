@@ -2359,10 +2359,34 @@ footer {
       position: absolute;
     }
 
+    img {
+      border: 2px solid #fff;
+      border-radius: rem-calc(12);
+      margin-bottom: $line-height / 2;
+      max-height: $line-height * 10;
+      width: 100%;
+    }
+
+    .relative {
+      min-height: rem-calc(340);
+    }
+
+    .button {
+      margin-bottom: 0;
+    }
+
     input:checked + label {
-      background: $brand;
-      border: 2px solid $brand !important;
-      color: #fff !important;
+
+      .button {
+        background: $brand;
+        border: 2px solid $brand !important;
+        color: #fff !important;
+      }
+
+      img {
+        border: 2px solid $brand;
+        filter: none !important;
+      }
 
       &::after {
         background: $brand;
@@ -2371,11 +2395,14 @@ footer {
         content: "\6c";
         color: #fff;
         font-family: "icons" !important;
-        font-size: rem-calc(12);
-        padding: $line-height / 4;
+        font-size: rem-calc(14);
+        height: 30px;
+        padding-left: $line-height / 4;
+        padding-top: 1px;
         position: absolute;
-        right: -8px;
-        top: -12px;
+        right: 6px;
+        top: -6px;
+        width: 30px;
       }
     }
 
@@ -2383,6 +2410,25 @@ footer {
       display: block;
       margin-bottom: 0;
       margin-left: 0;
+    }
+  }
+}
+
+.poll-question-answers {
+
+  &.irma {
+
+    .irma-answer-disabled {
+      pointer-events: none;
+
+      img {
+        filter: grayscale(100%);
+      }
+
+      .button {
+        border-color: $border;
+        color: $border;
+      }
     }
   }
 }

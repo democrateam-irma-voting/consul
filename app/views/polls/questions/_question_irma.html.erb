@@ -6,7 +6,7 @@
     <% @questions.each_with_index do |question, index| %>
       <div id="<%= dom_id(question) %>" class="poll-question">
         <% if @questions.count > 1 %>
-          <span class="question-list-label"><%= t("polls.question") %> <%= index + 1 %></span>
+        <span class="question-list-label"><%= t("polls.question") %> <%= index + 1 %></span>
         <% end %>
 
         <h3 class="inline-block">
@@ -14,10 +14,10 @@
         </h3>
 
         <% if question.answers_with_description.any? %>
-          <br>
-          <a href="#answer_<%= "#{question.answers_with_description.first.id}" %>" class="small" data-smooth-scroll>
-            <%= t("polls.show.more_info_options") %>
-          </a>
+        <br>
+        <a href="#answer_<%= "#{question.answers_with_description.first.id}" %>" class="small" data-smooth-scroll>
+          <%= t("polls.show.more_info_options") %>
+        </a>
         <% end %>
 
         <div id="<%= dom_id(question) %>_answers" class="padding">
@@ -25,6 +25,8 @@
         </div>
       </div>
     <% end %>
+
+    <span id="clear_irma_form" class="button hollow"><%= t("polls.show.clear_answers") %></span>
 
     <input type="submit" value="<%= t("polls.show.confirm_vote_submit") %>"
            class="button" id="irma_confirm_voting">

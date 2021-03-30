@@ -106,8 +106,75 @@
         });
       });
     },
+    disableAnswers: function() {
+      var questions = [];
+      var answers = {};
+      $("div.irma input").each(function() {
+        var question = $(this).attr("name");
+        var answer = $(this).attr("id");
+        if (answers[question] === undefined) {
+          questions.push(question);
+          answers[question] = [answer];
+        } else {
+          answers[question].push(answer);
+        }
+      });
+
+      $("div.irma input").each(function() {
+        $(this).on("change", function(event) {
+          var question_id = $(this).attr("name");
+          var answer_id = $(this).attr("id");
+          var selected_value = $(this).val();
+          answers[question_id].forEach(function(answer) {
+            if (answer !== answer_id) {
+              var input = $("#" + answer);
+              input.parent().fadeOut();
+            }
+          });
+          questions.forEach(function(question) {
+            if (question_id !== question) {
+              answers[question].forEach(function(answer) {
+                var input = $("#" + answer);
+                if (input.val() === selected_value) {
+                  input.attr("disabled", true);
+                  input.parent().addClass("irma-answer-disabled");
+                }
+              });
+            }
+          });
+        });
+      });
+    },
+    clearAnswers: function() {
+      var questions = [];
+      var answers = {};
+      $("div.irma input").each(function() {
+        var question = $(this).attr("name");
+        var answer = $(this).attr("id");
+        if (answers[question] === undefined) {
+          questions.push(question);
+          answers[question] = [answer];
+        } else {
+          answers[question].push(answer);
+        }
+      });
+
+      $("#clear_irma_form").click(function() {
+        questions.forEach(function(question) {
+          answers[question].forEach(function(answer) {
+            var input = $("#" + answer);
+            input.attr("disabled", false);
+            input.prop("checked", false);
+            input.parent().removeClass("irma-answer-disabled");
+            input.parent().show();
+          });
+        });
+      });
+    },
     initialize: function() {
       App.IrmaVoting.submitVote();
+      App.IrmaVoting.disableAnswers();
+      App.IrmaVoting.clearAnswers();
     }
   };
 }).call(this);
