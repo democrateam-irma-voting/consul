@@ -40,7 +40,7 @@
         answers.forEach(function(answer) {
           text += answer.question + " " + answer.answer + "\n";
         });
-        return text.slice(0, -1);;
+        return text.slice(0, -1);
       };
 
       var getVotingNumber = function(result) {
@@ -58,12 +58,12 @@
         var election = $("input#poll_slug").val();
         var answers = getAnswers();
         var message = humanReadable(answers);
-        var server = "http://192.168.1.38:8090";
+        var server = "https://pilotirma.democrateam.com:8088";
         var method = "token";
         var key = "0DLA0eaemnU20XW3YH4";
 
         if (message === "") {
-          message = " "
+          message = " ";
         }
 
         var request = {
