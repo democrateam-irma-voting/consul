@@ -19,6 +19,7 @@ class PollsController < ApplicationController
   end
 
   def show
+    irma_authentication if @poll.irma?
     @questions = @poll.questions.for_render.sort_for_list
     @token = poll_voter_token(@poll, current_user)
     @poll_questions_answers = Poll::Question::Answer.where(question: @poll.questions)
@@ -41,6 +42,29 @@ class PollsController < ApplicationController
   def results
   end
 
+  def irma_authenticate
+  end
+
+  def irma_vote
+    vote = @poll.irma_votes.new(irma_vote_params)
+    if vote.save
+      message = { type: "notice", text: t("polls.show.irma.success") }
+    else
+      message = { type: "alert", text: t("polls.show.irma.already_voted") }
+    end
+    render json: message
+  end
+
+  def irma_vote_finalize
+    if params[:alert]
+      @message = { type: :alert, text: params[:alert] }
+    elsif params[:notice]
+      @message = { type: :notice, text: params[:notice] }
+    else
+      @message = { type: :alert, text: t("polls.show.irma.error") }
+    end
+  end
+
   private
 
     def load_poll
@@ -49,5 +73,15 @@ class PollsController < ApplicationController
 
     def load_active_poll
       @active_poll = ActivePoll.first
+    end
+
+    def irma_authentication
+      if params[:authenticated] == "false"
+        redirect_to irma_authenticate_poll_path(@poll)
+      end
+    end
+
+    def irma_vote_params
+      params.permit(:voting_number, :vote)
     end
 end

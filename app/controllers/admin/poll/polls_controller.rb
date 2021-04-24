@@ -69,6 +69,15 @@ class Admin::Poll::PollsController < Admin::Poll::BaseController
     end
   end
 
+  def download_results
+    json_data = @poll.irma_votes.map do |irma_vote|
+      JSON.parse(irma_vote.vote)
+    end
+    filename = "#{@poll.slug}_results.json"
+
+    send_data json_data.to_json, filename: filename
+  end
+
   private
 
     def load_geozones

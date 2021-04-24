@@ -53,14 +53,14 @@ namespace :deploy do
 
   after "deploy:migrate", "add_new_settings"
 
-  after  :publishing, "setup_puma"
+  after :publishing, "setup_puma"
 
   after :published, "deploy:restart"
   before "deploy:restart", "puma:restart"
   before "deploy:restart", "delayed_job:restart"
   before "deploy:restart", "puma:start"
 
-  before :finished, "execute_release_tasks"
+  #before :finished, "execute_release_tasks"
   #after :finished, "refresh_sitemap"
 end
 
@@ -92,15 +92,15 @@ task :add_new_settings do
   end
 end
 
-task :execute_release_tasks do
-  on roles(:app) do
-    within release_path do
-      with rails_env: fetch(:rails_env) do
-        execute :rake, "consul:execute_release_tasks"
-      end
-    end
-  end
-end
+#task :execute_release_tasks do
+#  on roles(:app) do
+#    within release_path do
+#      with rails_env: fetch(:rails_env) do
+#        execute :rake, "consul:execute_release_tasks"
+#      end
+#    end
+#  end
+#end
 
 desc "Create pid and socket folders needed by puma"
 task :setup_puma do

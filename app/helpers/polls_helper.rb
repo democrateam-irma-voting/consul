@@ -37,6 +37,8 @@ module PollsHelper
       link_to text, results_poll_path(id: poll.slug || poll.id)
     elsif can?(:stats, poll)
       link_to text, stats_poll_path(id: poll.slug || poll.id)
+    elsif poll.irma?
+      link_to text, poll_path(id: poll.slug || poll.id, authenticated: false)
     else
       link_to text, poll_path(id: poll.slug || poll.id)
     end

@@ -1,0 +1,32 @@
+<div class="polls-show">
+  <div class="expanded no-margin-top polls-show-header">
+    <div class="row">
+      <div class="small-12 medium-9 column padding">
+        <%= back_link_to polls_path, t("polls.show.back") %>
+
+        <h1><%= @poll.name %></h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row margin-top">
+    <div class="callout primary">
+      <%= t("polls.show.irma.voting_card_needed") %>
+    </div>
+
+    <div class="card">
+      <div class="column padding">
+        <p><strong><%= t("polls.show.irma.already_irma") %></strong></p>
+
+        <%= link_to t("polls.show.irma.get_voting_card"),
+            "https://stem-van-groningen-pilot.sustainablesoftware.info",
+            class: "button hollow bold",
+            id: "#polls_get_irma_voting_card" %>
+
+        <%= link_to t("polls.show.irma.voting_card_owned"),
+            poll_path(id: @poll.slug || @poll.id),
+            class: "button success bold" %>
+      </div>
+    </div>
+  </div>
+</div>

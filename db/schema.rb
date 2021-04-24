@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210218130323) do
+ActiveRecord::Schema.define(version: 20210320150400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1009,6 +1009,15 @@ ActiveRecord::Schema.define(version: 20210218130323) do
     t.string "location"
   end
 
+  create_table "poll_irma_votes", force: :cascade do |t|
+    t.string "voting_number"
+    t.text "vote"
+    t.bigint "poll_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["poll_id"], name: "index_poll_irma_votes_on_poll_id"
+  end
+
   create_table "poll_officer_assignments", id: :serial, force: :cascade do |t|
     t.integer "booth_assignment_id"
     t.integer "officer_id"
@@ -1654,6 +1663,7 @@ ActiveRecord::Schema.define(version: 20210218130323) do
   add_foreign_key "organizations", "users"
   add_foreign_key "poll_answers", "poll_questions", column: "question_id"
   add_foreign_key "poll_booth_assignments", "polls"
+  add_foreign_key "poll_irma_votes", "polls"
   add_foreign_key "poll_officer_assignments", "poll_booth_assignments", column: "booth_assignment_id"
   add_foreign_key "poll_partial_results", "poll_booth_assignments", column: "booth_assignment_id"
   add_foreign_key "poll_partial_results", "poll_officer_assignments", column: "officer_assignment_id"

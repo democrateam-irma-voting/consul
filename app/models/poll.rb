@@ -26,7 +26,7 @@ class Poll < ApplicationRecord
   has_many :questions, inverse_of: :poll, dependent: :destroy
   has_many :comments, as: :commentable, inverse_of: :commentable
   has_many :ballot_sheets
-
+  has_many :irma_votes, class_name: "Poll::IrmaVote"
   has_many :geozones_polls
   has_many :geozones, through: :geozones_polls
   belongs_to :author, -> { with_hidden }, class_name: "User", inverse_of: :polls
