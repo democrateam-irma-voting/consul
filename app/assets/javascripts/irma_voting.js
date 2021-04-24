@@ -97,11 +97,13 @@
                 }
               });
             } else {
-              window.location.reload();
+              $("#irma_confirm_voting").removeAttr("disabled");
+              //window.location.reload();
             }
           }).catch(function(error){
             console.log(error);
-            window.location.reload();
+            $("#irma_confirm_voting").removeAttr("disabled");
+            //window.location.reload();
           });
         });
       });
