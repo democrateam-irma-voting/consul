@@ -546,6 +546,23 @@ describe "Polls" do
       expect(page).not_to have_content("This poll is not available on your geozone")
       expect(page).not_to have_content("You already have participated in this poll")
     end
+
+    scenario "Do not show comments on IRMA polls" do
+      poll = create(:poll)
+      5.times { create(:comment, commentable: poll) }
+
+      visit poll_path(poll)
+
+      expect(page).to have_selector("#tab-comments")
+      expect(page).to have_selector(".comment", count: 5)
+
+      poll.update!(irma: true)
+
+      visit poll_path(poll)
+
+      expect(page).not_to have_selector("#tab-comments")
+      expect(page).not_to have_selector(".comment")
+    end
   end
 
   context "Booth & Website", :with_frozen_time do
