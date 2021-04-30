@@ -2332,7 +2332,10 @@ footer {
       &.secondary[disabled]:focus {
         border: 2px solid $text;
         color: $text;
+        font-size: rem-calc(16);
         font-weight: bold;
+        line-height: $line-height;
+        min-height: 0;
       }
     }
 
@@ -2364,11 +2367,13 @@ footer {
       border-radius: rem-calc(12);
       margin-bottom: $line-height / 2;
       max-height: $line-height * 10;
-      width: 100%;
+      max-width: 100%;
+      min-height: rem-calc(180);
+      width: auto;
     }
 
     .relative {
-      min-height: rem-calc(340);
+      min-height: rem-calc(310);
     }
 
     .button {
