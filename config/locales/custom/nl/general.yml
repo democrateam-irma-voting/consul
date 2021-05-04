@@ -217,6 +217,19 @@ nl:
       comments_tab: "Reacties"
       more_info_options: "Meer informatie over de antwoordmogelijkheden"
       info_menu: "Vragen?"
+      irma:
+        voting_card_needed: "Je gaat stemmen om ons te laten weten welke drie onderdelen volgens jou niet mogen missen bij de 350e viering van het Groningens Ontzet. Die keuze bevestig je met de IRMA-app."
+        voting_card_needed_2: "IRMA is een app waarmee je makkelijk en veilig je stem kunt uitbrengen. Als het goed is heb je de app al geïnstalleerd en je gegevens (\"kaartjes\") toegevoegd."
+        voting_card_needed_3: "IRMA controleert aan de hand van die gegevens of jij mag stemmen en geeft je dan een stemkaart. Dit controleren doe je door een QR-code te scannen met je telefoon. Met de stemkaart die je dan ontvangt, krijg jij toegang tot de stemming. Na het maken van je keuze voor de drie onderdelen die jij belangrijk vindt, bevestig jij jouw keuze met de stemkaart."
+        already_irma: "Do you already have your IRMA voting card?"
+        get_voting_card: "I don't. Get my IRMA voting card"
+        voting_card_owned: "Yes, I already have my IRMA voting card"
+        success: "Your vote has been successfully saved."
+        already_voted: "You have already voted in this poll."
+        error: "An unexpected error has ocurred"
+        expired: "This poll is expired. Voting is no longer possible."
+        results:
+          download: "Download results"
   comments:
     comment:
       author: "Auteur"

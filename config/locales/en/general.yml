@@ -653,6 +653,8 @@ en:
       clear_answers: "Clear answers"
       irma:
         voting_card_needed: "An IRMA voting card is needed to confirm your vote."
+        voting_card_needed_2: "IRMA is an app with which you can easily and safely cast your vote. You should already have installed the app and added your details (\"tickets\")."
+        voting_card_needed_3: "IRMA checks on the basis of this information whether you can vote and then gives you a voting card. You do this by scanning a QR code with your phone. With the voting card you receive, you get access to the voting. After making your choice for the three parts you find important, you confirm your choice with the voting card."
         already_irma: "Do you already have your IRMA voting card?"
         get_voting_card: "I don't. Get my IRMA voting card"
         voting_card_owned: "Yes, I already have my IRMA voting card"
