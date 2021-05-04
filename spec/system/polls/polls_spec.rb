@@ -51,6 +51,19 @@ describe "Polls" do
       expect(page).to have_content("Question 2 #{question2.title}")
     end
 
+    scenario "IRMA poll display summary" do
+      poll = create(:poll, :irma, summary: "This is a IRMA poll")
+      question1 = create(:poll_question, :yes_no, poll: poll)
+      question2 = create(:poll_question, :yes_no, poll: poll)
+
+      visit polls_path
+
+      expect(page).to have_content(poll.name)
+      expect(page).to have_content "This is a IRMA poll"
+      expect(page).not_to have_content("Question 1 #{question1.title}")
+      expect(page).not_to have_content("Question 2 #{question2.title}")
+    end
+
     scenario "Polls display remaining days to participate if not expired" do
       travel_to "10/06/2020".to_date
       create(:poll, starts_at: "01/05/2020", ends_at: "31/05/2020", name: "Expired poll")
