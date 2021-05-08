@@ -78,6 +78,7 @@
         irma.startSession(server, request, method, key).then(function({sessionPtr, token}) {
           var options = {
             server: server,
+            language: "nl",
             token: token
           };
           irma.handleSession(sessionPtr, options).then(function(result) {

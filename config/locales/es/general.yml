@@ -654,6 +654,8 @@ es:
         most_voted_answer: "Respuesta más votada: "
       irma:
         voting_card_needed: "Se necesita una tarjeta de votación de IRMA para confirmar tus voto."
+        voting_card_needed_2: "IRMA es una app con la que puedes emitir tu voto de forma fácil y segura. Ya debería haber instalado la app y haber añadido sus datos (\"tickets\")."
+        voting_card_needed_3: "IRMA comprueba en base a esta información si puedes votar y luego te da una tarjeta de votación. Lo haces escaneando un código QR con tu teléfono. Con la tarjeta de votación que recibes, tienes acceso a la votación. Después de elegir las tres partes que te parecen importantes, confirmas tu elección con la tarjeta de votación."
         already_irma: "¿Ya dispones de una tarjeta de votación de IRMA?"
         get_voting_card: "No. Obtener mi tarjeta de votación"
         voting_card_owned: "Sí, ya dispongo de mi tarjeta de votación"
