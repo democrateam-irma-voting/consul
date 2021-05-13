@@ -218,9 +218,9 @@ nl:
       more_info_options: "Meer informatie over de antwoordmogelijkheden"
       info_menu: "Vragen?"
       irma:
-        voting_card_needed: "Je gaat stemmen om ons te laten weten welke drie onderdelen volgens jou niet mogen missen bij de 350e viering van het Groningens Ontzet. Die keuze bevestig je met de IRMA-app."
-        voting_card_needed_2: "IRMA is een app waarmee je makkelijk en veilig je stem kunt uitbrengen. Als het goed is heb je de app al geïnstalleerd en je gegevens (\"kaartjes\") toegevoegd."
-        voting_card_needed_3: "IRMA controleert aan de hand van die gegevens of jij mag stemmen en geeft je dan een stemkaart. Dit controleren doe je door een QR-code te scannen met je telefoon. Met de stemkaart die je dan ontvangt, krijg jij toegang tot de stemming. Na het maken van je keuze voor de drie onderdelen die jij belangrijk vindt, bevestig jij jouw keuze met de stemkaart."
+        voting_card_needed: "Je gaat stemmen op welke drie onderdelen volgens jou niet mogen missen bij de 350e viering van het Groningens Ontzet."
+        voting_card_needed_2: "Om te kunnen stemmen heb je naast de kaartjes met persoonlijke gegevens een stemkaart nodig in je IRMA-app."
+        voting_card_needed_3: "Haal de stemkaart op als je deze nog niet hebt."
         already_irma: "Heb je al een IRMA stemkaart?"
         get_voting_card: "Nee, nog niet. Haal mijn IRMA stemkaart op."
         voting_card_owned: "Ja, ik heb al een IRMA stemkaart."
